@@ -32,3 +32,15 @@ CONFIG_NF_FLOW_TABLE_INET=y
 CONFIG_NETFILTER_XT_TARGET_FLOWOFFLOAD=y
 EOF
 
+
+
+
+
+echo "CONFIG_ECM_FRONT_END_NSS_ENABLE=y" >> target/linux/ipq50xx/config-5.4
+echo "CONFIG_ECM_FRONT_END_SFE_ENABLE=n" >> target/linux/ipq50xx/config-5.4
+
+echo "CONFIG_ATH11K_NSS_OFFLOAD=y" >> target/linux/ipq50xx/config-5.4
+
+mkdir -p files/etc/modules.d
+echo "options ath11k nss_offload=1" > files/etc/modules.d/ath11k-nss
+
